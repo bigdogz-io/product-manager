@@ -1,0 +1,21 @@
+server:
+  port: 5000
+logging:
+  level:
+    org.springframework.cloud.web: INFO
+    com.bigdogz.productmanager: INFO
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: create
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    datasource:
+      url: "jdbc:postgresql://localhost:5432/productmanager"
+      username: productmanager
+      password: password
+  rabbitmq:
+    host: ${RABBIT_HOST:localhost}
+    username: ${RABBIT_USER:guest}
+    password: ${RABBIT_PASSWORD:guest}
+    virtual-host: ${RABBIT_VHOST:/}
+
