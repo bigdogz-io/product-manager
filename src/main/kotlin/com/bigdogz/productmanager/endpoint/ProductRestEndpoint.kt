@@ -18,7 +18,7 @@ class ProductRestEndpoint(var productCommandHandler: ProductCommandHandler, var 
     companion object : Log {}
 
     @PostMapping("/")
-    fun createProduct(@RequestBody createProductCommand: CreateProduct): String {
+    fun createProduct(@RequestBody createProductCommand: CreateProduct): Long {
         return productCommandHandler.createProduct(createProductCommand)
     }
 
@@ -28,7 +28,7 @@ class ProductRestEndpoint(var productCommandHandler: ProductCommandHandler, var 
     }
 
     @GetMapping("/{productId}")
-    fun getProductById(@PathVariable("productId") productId: String): ProductView {
+    fun getProductById(@PathVariable("productId") productId: Long): ProductView {
         return productQueryHandler.getProductById(productId)
     }
 }

@@ -9,7 +9,7 @@ class ProductCommandHandler(var productRepository: ProductRepository) {
 
     companion object : Log {}
 
-    fun createProduct(createProductCommand: CreateProduct): String {
+    fun createProduct(createProductCommand: CreateProduct): Long {
         logger().debug("create.product={}", createProductCommand)
         val product = productRepository.save(
             Product(

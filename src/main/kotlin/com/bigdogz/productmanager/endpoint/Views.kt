@@ -2,10 +2,9 @@ package com.bigdogz.productmanager.endpoint
 
 import com.bigdogz.productmanager.service.Product
 import com.bigdogz.productmanager.service.ProductType
-import java.util.function.Consumer
 
 data class ProductView(
-    val id: String? = null,
+    val id: Long? = null,
     val name: String? = null,
     val type: ProductType? = null,
     val abv: String? = null,

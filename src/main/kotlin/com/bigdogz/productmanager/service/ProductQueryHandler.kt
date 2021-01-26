@@ -12,16 +12,16 @@ import org.springframework.web.bind.annotation.RequestParam
 @Service
 class ProductQueryHandler(var productRepository: ProductRepository) {
 
-    fun getProductById(@PathVariable("productId") productId: String): ProductView {
+    fun getProductById(productId: Long): ProductView {
         val product = productRepository.findById(productId)
         if (product.isEmpty) {
-            throw RuntimeException("fuuuuuuck")
+            throw RuntimeException("ooops")
         }
 
         return product.get().toProductView()
     }
 
-    fun getProducts(@RequestParam("productType", required = false, defaultValue = "WINE") productType: ProductType): List<ProductView> {
+    fun getProducts(productType: ProductType): List<ProductView> {
         return productRepository.findByProductType(productType).toProductViewList()
     }
 }

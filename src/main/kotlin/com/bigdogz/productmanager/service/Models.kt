@@ -13,7 +13,7 @@ enum class ProductType {
 data class Product(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: String? = null,
+    val id: Long? = null,
     val name: String? = null,
     val productType: ProductType? = null,
     val abv: String? = null,
